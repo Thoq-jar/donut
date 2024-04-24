@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Clone
+git clone https://github.com/Thoq-jar/donut.git
+
+# CD
+cd donut
+
+# Compile
+gcc main.c -o donut
+
+# Get the directory of the current script
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+# Check if the directory is already in the PATH
+if [[ $PATH != *"$SCRIPT_DIR"* ]]; then
+    # Add the directory to the PATH for the current session
+    export PATH="$SCRIPT_DIR:$PATH"
+
+    # To make the change permanent, add the export command to the .bashrc file
+    echo 'export PATH="'$SCRIPT_DIR':$PATH"' >> ~/.bashrc
+    echo "Donut directory added to PATH. Please restart your terminal or source ~/.bashrc to apply the changes."
+else
+    echo "Donut directory is already in the PATH."
+fi
