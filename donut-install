@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Clean
+clear
+
+# Prepare
+cd ~
+rm -rf donut
+
 # Clone
 git clone https://github.com/Thoq-jar/donut.git
 
@@ -7,7 +14,7 @@ git clone https://github.com/Thoq-jar/donut.git
 cd donut
 
 # Compile
-gcc main.c -o donut
+gcc main.c -o donut -lm
 
 # Get the directory of the current script
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
